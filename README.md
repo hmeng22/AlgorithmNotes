@@ -22,8 +22,8 @@ Big O is a measure of the efficiency of an algorithm. It measuers the growth rat
 | Algorithm     |   Time Best  | Time Average |  Time Wrost  |   Space   | Stability |
 | :------------ | :----------: | :----------: | :----------: | :-------: | :-------: |
 | InsertionSort |     O(n)     |    O(n^2)    |    O(n^2)    |    O(1)   |    Yes    |
-| BubbleSort    |     O(n)     |    O(n^2)    |    O(n^2)    |  Constant |    Yes    |
+| BubbleSort    |     O(n)     |    O(n^2)    |    O(n^2)    |    O(1)   |    Yes    |
 | HeapSort      | O(n\*log(n)) | O(n\*log(n)) | O(n\*log(n)) |    O(1)   |     No    |
 | QuickSort     | O(n\*log(n)) | O(n\*log(n)) |    O(n^2)    | O(log(n)) |    Yes    |
 | MergeSort     | O(n\*log(n)) | O(n\*log(n)) | O(n\*log(n)) |    O(n)   |    Yes    |
-| SelectionSort |    O(n^2)    |    O(n^2)    |    O(n^2)    |  Constant |     No    |
+| SelectionSort |    O(n^2)    |    O(n^2)    |    O(n^2)    |    O(1)   |     No    |
