@@ -1,3 +1,11 @@
+### APIs
+
+```cpp
+#include <algorithm>
+swap(a, b);
+```
+
+
 ### Functions
 
 |       | Iterators                    |
