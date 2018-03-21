@@ -27,3 +27,11 @@ Big O is a measure of the efficiency of an algorithm. It measuers the growth rat
 | QuickSort     | O(n\*log(n)) | O(n\*log(n)) |    O(n^2)    | O(log(n)) |    Yes    |
 | MergeSort     | O(n\*log(n)) | O(n\*log(n)) | O(n\*log(n)) |    O(n)   |    Yes    |
 | SelectionSort |    O(n^2)    |    O(n^2)    |    O(n^2)    |    O(1)   |     No    |
+
+## Graph
+
+| Graph representation  |  Space | Time |
+| :-------------------- | :----: | :--: |
+| Objects with pointers |  O(n)  | O(n) |
+| Adjacency matrix      | O(n^2) | O(1) |
+| Adjacency lists       |  O(n)  | O(n) |
