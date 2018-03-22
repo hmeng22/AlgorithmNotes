@@ -35,3 +35,13 @@ Big O is a measure of the efficiency of an algorithm. It measuers the growth rat
 | Objects with pointers |  O(n)  | O(n) |
 | Adjacency matrix      | O(n^2) | O(1) |
 | Adjacency lists       |  O(n)  | O(n) |
+
+## Tree
+
+| Tree             | Space |   Search  |   Insert  |   Delete  |
+| :--------------- | :---: | :-------: | :-------: | :-------: |
+| Heap             |  O(n) |    O(n)   | O(log(n)) | O(log(n)) |
+| BinarySearchTree |  O(1) | O(log(n)) | O(log(n)) | O(log(n)) |
+| AVLTree          |  O(n) | O(log(n)) | O(log(n)) | O(log(n)) |
+| RedBlackTree     |  O(n) | O(log(n)) | O(log(n)) | O(log(n)) |
+| B-Tree           |  O(n) | O(log(n)) | O(log(n)) | O(log(n)) |
