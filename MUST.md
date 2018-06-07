@@ -100,6 +100,47 @@ void merge(vector<int> &nums, int left, int mid, int right) {
 }
 ```
 
+## Heap Sort
+
+```cpp
+void heapify(int data[], int start, int end) {
+  int parent = start;
+  int child = parent * 2 + 1;
+
+  while (child <= end) {
+    if (child + 1 <= end && data[child] < data[child + 1]) {
+      child++;
+    }
+    if (data[parent] >= data[child]) {
+      return;
+    }
+
+    swap(data[parent], data[child]);
+    parent = child;
+    child = parent * 2 + 1;
+  }
+}
+
+void HeapSort(int data[], int length) {
+  int i;
+  
+  // build heap
+  // start with the first non-leaf node
+  for (i = length / 2 - 1; i >= 0; i--) {
+    heapify(data, i, length - 1);
+  }
+
+  //for (i = 0; i < length / 2; i++) {
+  //  heapify(data, 0, i);
+  //}
+
+  for (i = length - 1; i > 0; i--) {
+    swap(data[0], data[i]);
+    heapify(data, 0, i - 1);
+  }
+}
+```
+
 ## Union Find
 
 Track a set of elements partitioned into a number of disjoint subsets.
