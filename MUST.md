@@ -44,7 +44,7 @@ int partition(vector<int> &nums, int low, int high) {
   int high_num = nums[high];
   int higher_pivot_index = low;
   for(int i = low; i < high; i++) {
-    if (nums[i] < high_num) {
+    if (nums[i] > high_num) {
       swap(nums[higher_pivot_index], nums[i]);
       high_pivot_index++;
     }
