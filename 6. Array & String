@@ -1,0 +1,5 @@
+```cpp
+[a0, b0] and [a1, b1] overlap ?
+
+max(a0, a1) < min(b0, b1)
+```
