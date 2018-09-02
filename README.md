@@ -39,6 +39,7 @@ Big O is a measure of the efficiency of an algorithm. It measuers the growth rat
 ## DFS & BFS
 
 Adjacency Matrix : O(n^2)
+
 Adjacency Lists : O(v + e)
 
 ## Tree
