@@ -1,0 +1,204 @@
+```cpp
+vector<int> data = {...};
+int length = data.size();
+```
+
+#### InsertionSort
+
+```cpp
+// length - 1 times comparison
+// put the current value into the front ordered array
+for (int n = 0; n < length - 1; n++) {
+    for (int i = n + 1; i > 0; i--) {
+        if (data[i] < data[i - 1]) {
+            swap(data[i], data[i - 1]);
+        }
+    }
+}
+```
+
+#### BubbleSort
+
+```cpp
+// length - 1 times comparison
+// compare each pair of adjacent items
+// swap them if they are in the wrong order.
+//
+// flag : quit when it has no swap.
+for (int n = 0; n < length - 1; n++) {
+    for (int i = 0; i < length - 1 - n; i++) {
+        if (data[i] > data[i + 1]) {
+            swap(data[i], data[i + 1]);
+        }
+    }
+}
+```
+
+#### HeapSort
+
+```cpp
+// parent i, left child 2i+1, right child 2i+2
+// child i, parent floor((i-1)/2)
+// length - 1 time heapify
+void heapify(vector<int>& data, int start, int end) {
+    int parent = start;
+    int child = parent * 2 + 1;
+
+    while (child <= end) {
+        if (child + 1 <= end && data[child] < data[child + 1]) {
+            child++;
+        }
+        if (data[parent] >= data[child]) {
+            return;
+        }
+
+        swap(data[parent], data[child]);
+        parent = child;
+        child = parent * 2 + 1;
+    }
+}
+
+void HeapSort() {
+    // start with the first non-leaf node
+    for (int i = length / 2 - 1; i >= 0; i--) {
+        heapify(data, i, length - 1);
+    }
+    
+    //for (i = 0; i < length / 2; i++) {
+    //  heapify(data, 0, i);
+    //}
+
+    for (int i = length - 1; i > 0; i--) {
+        swap(data[0], data[i]);
+        heapify(data, 0, i - 1);
+    }
+}
+```
+
+#### QuickSort
+
+```cpp
+// choose a pivot value
+// partition (less than pivot) pivot (greater than pivot)
+// recursively QuickSort both parts
+void QuickSort(vector<int>& data, int low, int high) {
+    if (low >= high) {
+        return;
+    }
+
+    int i = low;
+    int j = high;
+    int pivot = data[high];
+
+    while (i <= j) {
+        while (data[i] < pivot) {
+            i++;
+        }
+        while (data[j] > pivot) {
+            j--;
+        }
+
+        if (i <= j) {
+            swap(data[i], data[j]);
+            i++;
+            j--;
+        }
+    }
+
+    QuickSort(data, low, j);
+    QuickSort(data, i, high);
+}
+```
+```cpp
+int partition(vector<int>& data, int low, int high) {
+    int pivot = data[high];
+    int order_index = low;
+
+    for (int i = low; i < high; i++) {
+        if (data[i] < pivot) {
+            swap(data[order_index], data[i]);
+            order_index++;
+        }
+    }
+    swap(data[order_index], data[high]);
+    return order_index;
+}
+
+void QuickSort(vector<int>& data, int low, int high) {
+    if (low < high) {
+        int pos = partition(data, low, high);
+
+        QuickSort(data, low, pos - 1);
+        QuickSort(data, pos + 1, high);
+    }
+}
+```
+
+#### MergeSort
+
+```cpp
+// Divide into 1-length subsets
+// Merge subsets in order
+void merge(vector<int>& data, int left, int middle, int right) {
+    int i, j, k;
+    int data_left_length = middle - left + 1;
+    int data_right_length = right - middle;
+
+    int data_left[data_left_length];
+    int data_right[data_right_length];
+
+    for (i = 0; i < data_left_length; i++) {
+        data_left[i] = data[left + i];
+    }
+
+    for (j = 0; j < data_right_length; j++) {
+        data_right[j] = data[middle + 1 + j];
+    }
+
+    i = 0;
+    j = 0;
+    k = left;
+    while (i < data_left_length && j < data_right_length) {
+        if (data_left[i] <= data_right[j]) {
+            data[k++] = data_left[i++];
+        } else {
+            data[k++] = data_right[j++];
+        }
+    }
+
+    while (i < data_left_length) {
+        data[k++] = data_left[i++];
+    }
+
+    while (j < data_right_length) {
+        data[k++] = data_right[j++];
+    }
+}
+
+void MergeSort(vector<int>& data, int left, int right) {
+    if (left < right) {
+        int middle = left + (right - left) / 2;
+        MergeSort(data, left, middle);
+        MergeSort(data, middle + 1, right);
+
+        merge(data, left, middle, right);
+    }
+}
+```
+
+#### SelectionSort
+
+```cpp
+// length - 1 times comparison
+// find the minimum or the maximum value
+// move it to the front ordered array
+for (int n = 0; n < length - 1; n++) {
+    int min_i = n;
+    for (int i = n + 1; i < length; i++) {
+        if (data[i] < data[min_i]) {
+            min_i = i;
+        }
+    }
+    swap(data[n], data[min_i]);
+}
+```
